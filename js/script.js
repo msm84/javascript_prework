@@ -6,7 +6,7 @@ function buttonClicked(argButtonName) {
     console.log(argButtonName + ' został kliknięty');
 
     /**
-     * Describe this function...
+     * Później opisać
      */
     function getMoveName(argMoveId) {
         console.log('wywołano funkcję getMoveName z argumentem: ' + argMoveId);
