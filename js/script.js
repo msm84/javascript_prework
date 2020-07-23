@@ -1,6 +1,9 @@
 /**
  * Describe this function...
  */
+let playerResult = 0; //zadeklarowałem początkową wartość wyników gracza i komputera//
+let computerResult = 0;
+
 function buttonClicked(argButtonName) {
     clearMessages();
     console.log(argButtonName + ' został kliknięty');
@@ -28,14 +31,18 @@ function buttonClicked(argButtonName) {
         console.log('wywołano funkcję displayResults z argumentami: ' + argPlayerMove + ', ' + argComputerMove);
         if (argPlayerMove == 'papier' && argComputerMove == 'kamień') {
             printMessage('Wygrywasz!');
+            playerResult++; //zwiększam wynik gracza o 1//
         } else if (argPlayerMove == 'kamień' && argComputerMove == 'nożyce') {
             printMessage('Wygrywasz!');
+            playerResult++;
         } else if (argPlayerMove == 'nożyce' && argComputerMove == 'papier') {
             printMessage('Wygrywasz!');
+            playerResult++;
         } else if (argPlayerMove == argComputerMove) {
             printMessage('Remis!');
         } else {
             printMessage('Przegrywasz :(');
+            computerResult++; //zwiększam wynik komputera o 1//
         }
         printMessage('Zagrałem ' + argComputerMove + ', a Ty ' + argPlayerMove);
     }
@@ -49,6 +56,8 @@ function buttonClicked(argButtonName) {
     let computerMove = getMoveName(randomNumber);
     console.log('ruch komputera to: ' + computerMove);
     displayResult(playerMove, computerMove);
+    let results = document.getElementById('results'); //pobieram DIV results do zmiennej results//
+    results.innerHTML = playerResult + ' : ' + computerResult; //wstawiam wynik gry do DIVa results//
 }
 
 let buttonRock = document.getElementById('button-rock');
